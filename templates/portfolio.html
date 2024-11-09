@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="{% static 'static/styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f8;
+        }
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Main Heading Styling */
+        .main-title {
+            color: #2a9d8f; /* Teal color for main heading */
+            font-size: 2.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #007acc;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+        .hero h2 {
+            color: #ffeb3b; /* Yellow for "Welcome to My Portfolio" heading */
+        }
+
+        /* Navigation Styling */
+        header {
+            background-color: #005f99;
+            padding: 10px 20px;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        header nav ul li {
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        header nav ul li a:hover {
+            color: #cce6ff;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #projects h2 {
+            color: #4caf50; /* Green for "Projects" heading */
+        }
+        #achievements h2 {
+            color: #ff5722; /* Orange for "Achievements" heading */
+        }
+        #social_media h2 {
+            color: #673ab7; /* Purple for "Social Media" heading */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e6f2ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* Link Styling */
+        a {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #005f99;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #005f99;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-title">Your Portfolio</h1> <!-- Main Heading -->
+
+    <section class="hero">
+        <h2>Welcome to My Portfolio</h2>
+    </section>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#social_media">Social Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <ul>
+            {% for achievement in achievements %}
+                <li>
+                    <h3>{{ achievement.title }}</h3>
+                    <p>{{ achievement.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="social_media">
+        <h2>Social Media</h2>
+        <ul>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Krishna28-del" target="_blank">https://github.com/Krishna28-del</a></li>
+        </ul>
+    </section>
+
+    <p><a href="{% url 'personal_details' %}">View Personal Details</a></p>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
